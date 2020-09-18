@@ -3,14 +3,31 @@
 ## Short questions
 
 - What is a package? How do you define a package?
+A: A package is a collection of classes, based on either said classes roles int the MVC structure (for smaller projects),
+or on what aspect of the application are they responsible for.
 - What is a constructor? When is it executed?
+A: A constuctor is responsible for creating an instance of a class, it is executed when a new object based on the class is created.
 - How do you implement inheritance in Java?
+A: By creating relevant fields for the dependencies, and then defining said fields in the constructor of the class, which depends on said
+dependencies. In Spring framework there are also special anotations (like @Autowired) to help you.
 - How do you prevent someone to inherit from a class?
+A: By making it private.
 - What is a final variable? Where you can assign value to final variables?
+A: A final variable is a private variable without a setter, essentialy a "variable" which's value you shouldn't change.
 - Specify the available access modifiers in Java and briefly explain them
+A: -Public: Anyone can acces them, by importong the relevant class.
+   -Default: Can accesed in the same package without a getter/setter.
+   -Protected: Can accesed in the same class without a getter/setter.
+   -Private: Cannot be accessed without a getter/setter.
 - Briefly explain the mechanism of exception handling
+A: The first thing you need to do, is to "catch" the exception, basically telling the compiler that you expect an exception,
+and what kind of exception you expect. Then you need to specify what should happen, if said exception is thrown, like returning a relevant
+error message for example.
 - What is the difference between an abstract class and an interface?
+A: An interface can only have abstract methods, while an abstract class can have both abstract and not abstract methods. Also, interfaces
+are implemented, while abstract classes are extended.
 - What is the difference between Comparator and Comparable?
+A: Comparator is an interface while Comparable is a method.
 - How Iterable and Iterator interface works? What methods need to exist in a
 class that implements them? What is their relation to for loops?
 
@@ -42,6 +59,19 @@ isPalindrom("alma"); //false
 isPalindrom("görög"); //true
 ```
 
+Answer:
+
+```java
+public boolean isPalindrom(String input) {
+  for(i = 0, i < input.length, i++) {
+    if(input(i) != input(input.length - 1 - i)) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
 ### Find The Duplicate
 
 You have an array that contains strings. Every item in the array is
@@ -60,6 +90,21 @@ public String findTheDuplicate(String[] input) {
 String[] fruitBasket = new String[] { "apple", "banana", "coconut", "durian",
 "banana", "elderberry", "fig", "grapefruit" };
 findTheDuplicate(fruitBasket); //should return banana
+```
+
+Answer:
+
+
+```java
+public String findTheDuplicate(String[] input) {
+  for(i = 0, i < input.length, i++) {
+    for(j = 0, j < input.length, j++) {
+      if(input(i) = input(j)) {
+        return input(i);
+      }
+    }
+  }
+}
 ```
 
 ### Count The Words
